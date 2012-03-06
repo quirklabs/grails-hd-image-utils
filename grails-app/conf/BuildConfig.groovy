@@ -35,3 +35,5 @@ grails.project.dependency.resolution = {
         }
     }
 }
+
+grails.project.repos.default = "quirkRepo"
