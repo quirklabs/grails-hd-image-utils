@@ -1,0 +1,7 @@
+.settings
+dependencies.groovy
+grails-hd-image-utils*.zip*
+plugin.xml
+stacktrace.log
+target/
+web-app/
