@@ -1,5 +1,5 @@
 class HdImageUtilsGrailsPlugin {
-    def version = "0.1"
+    def version = "0.2"
     def grailsVersion = "2.0 > *"
     def dependsOn = [:]
     def pluginExcludes = [
@@ -9,10 +9,10 @@ class HdImageUtilsGrailsPlugin {
     def title = "Hd Image Utils Plugin" 
     def author = "Craig Raw"
     def authorEmail = "craig@quirk.biz"
-    def description = '''\
-High quality image manipulation plugin, for scaling and cropping images. Uses the pure Java java-image-scaling library at http://code.google.com/p/java-image-scaling/
-'''
+    def description = "High quality image manipulation plugin, for scaling and cropping images. Uses the pure Java java-image-scaling library at http://code.google.com/p/java-image-scaling/"
+    def documentation = "https://github.com/quirklabs/grails-hd-image-utils/blob/master/README.md"
     def license = "APACHE"
     def organization = [ name: "Quirk Labs", url: "http://www.quirklabs.co.za" ]
+    def issueManagement = [ system: "github", url: "https://github.com/quirklabs/grails-hd-image-utils/issues" ]
     def scm = [ url: "https://github.com/quirklabs/grails-hd-image-utils" ]
 }
