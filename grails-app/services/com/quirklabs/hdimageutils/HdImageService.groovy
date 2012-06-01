@@ -1,4 +1,4 @@
-package za.co.quirklabs.hdimageutils
+package com.quirklabs.hdimageutils
 
 import java.awt.Graphics2D
 import java.awt.image.BufferedImage

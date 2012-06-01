@@ -1,4 +1,4 @@
-package za.co.quirklabs.hdimageutils
+package com.quirklabs.hdimageutils
 
 
 
