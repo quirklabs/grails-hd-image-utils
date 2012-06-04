@@ -36,5 +36,5 @@ grails.project.dependency.resolution = {
     }
 }
 
-grails.project.repos.default = "quirkRepo"
+//grails.project.repos.default = "quirkRepo"
 grails.release.scm.enabled = false
