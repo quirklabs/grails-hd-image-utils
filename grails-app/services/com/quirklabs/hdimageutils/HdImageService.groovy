@@ -113,12 +113,12 @@ class HdImageService {
         
         if(width == null) {
             double ratio = image.getHeight() / height
-            width = image.getWidth() * ratio
+            width = image.getWidth() / ratio
         }
         
         if(height == null) {
             double ratio = image.getWidth() / width
-            height = image.getHeight() * ratio
+            height = image.getHeight() / ratio
         }
         
         ResampleOp resampleOp = new ResampleOp(width, height)
