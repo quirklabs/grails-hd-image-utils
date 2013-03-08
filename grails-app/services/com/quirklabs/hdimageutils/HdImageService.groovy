@@ -112,12 +112,12 @@ class HdImageService {
         }
         
         if(width == null) {
-            double ratio = image.getHeight() / height
+            double ratio = height / image.getHeight()
             width = image.getWidth() * ratio
         }
         
         if(height == null) {
-            double ratio = image.getWidth() / width
+            double ratio = width / image.getWidth()
             height = image.getHeight() * ratio
         }
         
