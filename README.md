@@ -19,7 +19,7 @@ byte[] crop(InputStream inputStream, int x, int y, int width, int height)
 Performs a crop of an image to the specified dimensions. 
 
 ```groovy
-byte[] crop(InputStream inputStream, int cropX, int cropY, int cropWidth, int cropHeight, int scaleWidth, int scaleHeight)
+byte[] cropAndScale(InputStream inputStream, int cropX, int cropY, int cropWidth, int cropHeight, int scaleWidth, int scaleHeight)
 ```
 Performs a crop of an image to the specified dimensions, followed by a scale.
 
