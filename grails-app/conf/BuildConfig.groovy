@@ -29,10 +29,12 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        build(":tomcat:$grailsVersion",
-              ":release:2.0.2") {
+        build(":tomcat:7.0.42",
+              ":release:3.0.1") {
             export = false
         }
+
+        runtime(":hibernate:3.6.10.1")
     }
 }
 
