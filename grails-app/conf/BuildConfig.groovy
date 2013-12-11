@@ -28,13 +28,7 @@ grails.project.dependency.resolution = {
         compile 'com.mortennobel:java-image-scaling:0.8.5'
     }
 
-    plugins {
-        build(":tomcat:7.0.42",
-              ":release:3.0.1") {
-            export = false
-        }
-
-        runtime(":hibernate:3.6.10.1")
+    plugins {       
     }
 }
 
