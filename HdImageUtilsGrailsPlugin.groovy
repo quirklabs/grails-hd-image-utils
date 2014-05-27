@@ -1,6 +1,6 @@
 class HdImageUtilsGrailsPlugin {
-    def version = "0.5"
-    def grailsVersion = "1.3 > *"
+    def version = "1.0"
+    def grailsVersion = "2.0 > *"
     def dependsOn = [:]
     def pluginExcludes = [
         "grails-app/views/error.gsp"
