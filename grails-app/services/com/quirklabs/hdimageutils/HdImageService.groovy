@@ -1,5 +1,7 @@
 package com.quirklabs.hdimageutils
 
+import java.lang.reflect.Method
+
 import java.awt.Graphics2D
 import java.awt.image.BufferedImage
 import java.awt.image.RasterFormatException
@@ -8,9 +10,6 @@ import javax.imageio.ImageIO
 import javax.imageio.ImageReader
 import javax.imageio.stream.ImageInputStream
 import javax.imageio.stream.MemoryCacheImageInputStream
-
-import com.sun.image.codec.jpeg.JPEGCodec
-import com.sun.image.codec.jpeg.JPEGImageDecoder
 
 import com.mortennobel.imagescaling.ResampleOp
 import com.mortennobel.imagescaling.AdvancedResizeOp
@@ -83,8 +82,7 @@ class HdImageService {
         } catch( IllegalArgumentException e ) {
           /* most probably an invalid color profile - solution: recreate the image first */
           bufferedInputStream.reset()
-          JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(new ByteArrayInputStream(fileContents))
-          return decoder.decodeAsBufferedImage()
+          return legacyDecode(new ByteArrayInputStream(fileContents))
         }
     }
     
@@ -99,8 +97,7 @@ class HdImageService {
         } catch( IllegalArgumentException e ) {
           /* most probably an invalid color profile - solution: recreate the image first */
           bufferedInputStream.reset()
-          JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(bufferedInputStream)
-          image = decoder.decodeAsBufferedImage()
+          image = legacyDecode(bufferedInputStream)
         }
         
         image
@@ -140,6 +137,24 @@ class HdImageService {
 
       g2d.dispose()
       cropImage
+    }
+    
+    private BufferedImage legacyDecode(BufferedInputStream inputStream) {
+      try {
+          Class<?> jpegCodecClazz = Class.forName("com.sun.image.codec.jpeg.JPEGCodec")
+
+          Method method = jpegCodecClazz.getDeclaredMethod("createJPEGDecoder", InputStream.class)
+          Object jpegImageDecoder = method.invoke(null, inputStream)
+
+          Method method2 = jpegImageDecoder.getClass().getDeclaredMethod("decodeAsBufferedImage")
+          Object image = method2.invoke(jpegImageDecoder)
+
+          return (BufferedImage)image
+      } catch(Exception e) {
+          log.debug("Image decoding failed, tried with ImageIO and JPEGCodec", e)
+      }
+
+      return null
     }
 }
 
